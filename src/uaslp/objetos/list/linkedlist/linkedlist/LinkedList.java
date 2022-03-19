@@ -1,4 +1,4 @@
-package uaslp.objetos.list.linkedlist;
+package uaslp.objetos.list.linkedlist.linkedlist;
 
 public class LinkedList {
     protected  Node head;

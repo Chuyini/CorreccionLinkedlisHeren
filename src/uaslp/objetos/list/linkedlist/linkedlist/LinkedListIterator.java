@@ -1,4 +1,4 @@
-package uaslp.objetos.list.linkedlist;
+package uaslp.objetos.list.linkedlist.linkedlist;
 
 public class LinkedListIterator extends LinkedList {
 
