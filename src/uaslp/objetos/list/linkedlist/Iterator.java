@@ -1,8 +1,8 @@
 package uaslp.objetos.list.linkedlist;
 
-public interface Iterator {
+public interface Iterator <T>{
 
     boolean hasNext();
-    String next();
+    T next();
 
 }

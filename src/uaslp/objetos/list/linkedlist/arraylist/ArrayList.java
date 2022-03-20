@@ -1,27 +1,19 @@
 package uaslp.objetos.list.linkedlist.arraylist;
 import uaslp.objetos.list.linkedlist.Iterator;
 import uaslp.objetos.list.linkedlist.List;
-
-
-import javax.swing.*;
-
-public class ArrayList implements List {
+public class ArrayList <T> implements List <T> {
     private static final int DEFAULT_SIZE=50;//#Define DEFAULT_SIZE 50. estatico para generar varias copias en cada objeto
-    private String array[];
+    private T array[];
     int size=0; //Tipos primitivos se igualan a 0
-
     public ArrayList()//sobre carga de metodos de constructores
     {
-        array=new String[DEFAULT_SIZE];
-
+        array=(T[]) new Object[DEFAULT_SIZE];
     }
-
     ArrayList(int size){
-       array=new String[size];// creamos el arreglo con el tamaño size indicado por el usuario
+       array=(T[])new Object[size];// creamos el arreglo con el tamaño size indicado por el usuario
     }
-
 @Override
-    public void addAtTail (String data)
+    public void addAtTail (T data)
     {
         if(size== array.length)
         {
@@ -30,13 +22,12 @@ public class ArrayList implements List {
         }
         array[size]=data;
         size++;
-
     }
     @Override
-    public void addAtFront(String data)
+    public void addAtFront(T data)
     {
-        String aux;
-        aux=array[1];
+       T aux;
+
         int cont;
 
 
@@ -77,14 +68,14 @@ public class ArrayList implements List {
         size=0;
     }
     @Override
-    public void setAt(int index, String data) {
+    public void setAt(int index, T data) {
         if(index>=0&& index<size)
         {array[index]=data;}
 
 
     }
     @Override
-    public String getAt(int index)
+    public T getAt(int index)
     {
         if(index>=0&&index<size)
         {
@@ -96,7 +87,7 @@ public class ArrayList implements List {
         }
     }
 
-    public void removeAllWithVlue(String data)
+    public void removeAllWithVlue(T data)
     {
 
     }
@@ -105,15 +96,15 @@ public class ArrayList implements List {
         return size;
     }
     @Override
-    public Iterator getIterator()
+    public Iterator <T> getIterator()
     {
 
-        return new ArrayListIterator(this);
+        return new ArrayListIterator<T>(this);
     }
 
     private void incrementaArreglo()
     {
-        String newArray[]=new String[array.length*2];
+        T newArray[]=(T[])new Object[array.length*2];
         for (int cont=0;cont<size;cont++)
         {
             newArray[cont]=array[cont];

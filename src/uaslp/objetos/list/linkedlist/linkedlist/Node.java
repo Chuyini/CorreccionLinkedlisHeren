@@ -1,7 +1,7 @@
 package uaslp.objetos.list.linkedlist.linkedlist;
 
-public class Node {
- String nombre=null;
- Node next;
- Node previous;
+public class Node<T> {
+ T nombre=null;
+ Node <T>next;
+ Node <T>previous;
 }

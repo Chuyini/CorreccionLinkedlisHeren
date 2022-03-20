@@ -6,9 +6,9 @@ import uaslp.objetos.list.linkedlist.linkedlist.LinkedListIterator;
 import uaslp.objetos.list.linkedlist.Iterator;
 public class MainInterface {
     public static void main(String[] args) {
-        List team1 = new ArrayList();
-        List team2 = new LinkedList();
-        List team3 = new ArrayList();
+        List <String> team1 = new ArrayList<>();
+        List<String> team2 = new LinkedList<>();
+        List<String> team3 = new ArrayList<>();
 
 
         team1.addAtTail("Jesús");
@@ -22,7 +22,7 @@ public class MainInterface {
 
         team3.addAtFront("Imelda");
 
-        Iterator iterator;
+        Iterator<String> iterator;
 
         iterator =  team1.getIterator();
 

@@ -1,47 +1,38 @@
 package uaslp.objetos.list.linkedlist.linkedlist;
-
-import uaslp.objetos.list.linkedlist.Iterator;
 import uaslp.objetos.list.linkedlist.List;
 
-public class LinkedList implements List {
-    protected  Node head;
-    protected  Node tail;
+import uaslp.objetos.list.linkedlist.Iterator;
+public class LinkedList <T> implements List <T> {
+    protected  Node <T> head;
+    protected  Node <T>tail;
     public int size=0;
-    protected int cont=0;
 @Override
-    public void addAtTail (String data)
+    public void addAtTail (T data)
     {
-
-
         if(head==null)
         {
-
-            Node til=new Node();
+            Node <T> til=new Node<>();
             head=tail=til;
             tail.nombre=data;
             size++;
-
         }else
         {
-            Node aux=new Node();
+            Node <T>  aux= new Node<>();
             aux.nombre=data;
             aux.previous=tail;
             tail.next=aux;
             tail=aux;
             size++;
         }
-
-
-
     }
     @Override
-    public void addAtFront(String data)
+    public void addAtFront(T data)
     {
 
 
         if(head==null)
         {
-            Node hed=new Node();
+            Node<T> hed=new Node<>();
             tail=head=hed;
             head.nombre=data;
 
@@ -49,7 +40,7 @@ public class LinkedList implements List {
 
         }else
         {
-            Node aux=new Node();
+            Node <T>aux=new Node<>();
             aux.nombre=data;
             aux.next=head;
             head.previous=aux;
@@ -65,7 +56,7 @@ public class LinkedList implements List {
     public void remove(int index)
     {
 
-        Node aux =new Node();
+        Node<T> aux =new Node<>();
         int cont;
         aux=head;
         if(aux==null)
@@ -125,12 +116,11 @@ public class LinkedList implements List {
 
     }
     @Override
-    public void setAt(int index, String data)
+    public void setAt(int index, T data)
     {
-        Node nuevo=new Node();
-        Node aux= new Node();
+        Node<T> aux= new Node<>();
         aux=head;
-        int cont;
+        int cont=0;
         if(head==null)
         {
             return;
@@ -153,9 +143,9 @@ public class LinkedList implements List {
 
 
     @Override
-    public String getAt(int index)
+    public T getAt(int index)
     {
-        Node aux=new Node();
+        Node<T> aux=new Node<>();
 
         int cont;
         aux=head;
@@ -168,13 +158,13 @@ public class LinkedList implements List {
             }
 
         }
-        return " \nNo se encontro el dato \n";
+        return null;
 
     }
 
 
 
-    public void removeAllWithVlue(String data)
+    public void removeAllWithVlue(T data)
     {
 
     }
@@ -185,9 +175,9 @@ public class LinkedList implements List {
 
     }
     @Override
-    public Iterator getIterator()
+    public Iterator <T> getIterator()
     {
-        Iterator iterator=  new LinkedListIterator(head,size);
+        Iterator iterator=  new LinkedListIterator<T>(head,size);
 
         return  iterator;
     }
