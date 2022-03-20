@@ -1,3 +1,4 @@
+import uaslp.objetos.list.linkedlist.Iterator;
 import uaslp.objetos.list.linkedlist.linkedlist.LinkedList;
 import uaslp.objetos.list.linkedlist.linkedlist.LinkedListIterator;
 
@@ -21,7 +22,7 @@ public class Main {
 
         team3.addAtFront("Imelda");
 
-        LinkedListIterator iterator;
+        Iterator iterator;
 
         iterator = team1.getIterator();
 

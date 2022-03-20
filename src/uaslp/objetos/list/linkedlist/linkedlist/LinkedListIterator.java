@@ -1,9 +1,19 @@
 package uaslp.objetos.list.linkedlist.linkedlist;
 
-public class LinkedListIterator extends LinkedList {
+import uaslp.objetos.list.linkedlist.Iterator;
+
+public class LinkedListIterator implements Iterator {
 
 int cont=0;
+Node head;
+int size;
 
+public LinkedListIterator(Node head,int size)
+{
+    this.head=head;
+    this.size=size;
+
+}
 
 
   public boolean hasNext()

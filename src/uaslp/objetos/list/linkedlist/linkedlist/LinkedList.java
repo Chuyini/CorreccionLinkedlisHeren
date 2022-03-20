@@ -1,11 +1,14 @@
 package uaslp.objetos.list.linkedlist.linkedlist;
 
-public class LinkedList {
+import uaslp.objetos.list.linkedlist.Iterator;
+import uaslp.objetos.list.linkedlist.List;
+
+public class LinkedList implements List {
     protected  Node head;
     protected  Node tail;
     public int size=0;
     protected int cont=0;
-
+@Override
     public void addAtTail (String data)
     {
 
@@ -31,6 +34,7 @@ public class LinkedList {
 
 
     }
+    @Override
     public void addAtFront(String data)
     {
 
@@ -57,6 +61,7 @@ public class LinkedList {
 
 
     }
+    @Override
     public void remove(int index)
     {
 
@@ -106,7 +111,7 @@ public class LinkedList {
         }
     }
 
-
+    @Override
     public void removeAll()
     {
         Node aux=head;
@@ -119,6 +124,7 @@ public class LinkedList {
         }
 
     }
+    @Override
     public void setAt(int index, String data)
     {
         Node nuevo=new Node();
@@ -146,7 +152,7 @@ public class LinkedList {
 
 
 
-
+    @Override
     public String getAt(int index)
     {
         Node aux=new Node();
@@ -172,20 +178,16 @@ public class LinkedList {
     {
 
     }
+    @Override
     public int getSize()
     {
         return size;
 
     }
-    public LinkedListIterator getIterator()
+    @Override
+    public Iterator getIterator()
     {
-        LinkedListIterator iterator=new LinkedListIterator();
-        iterator.head=head;
-        iterator.tail=tail;
-        iterator.size=size;
-
-
-
+        Iterator iterator=  new LinkedListIterator(head,size);
 
         return  iterator;
     }

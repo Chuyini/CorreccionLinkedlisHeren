@@ -1,6 +1,8 @@
 package uaslp.objetos.list.linkedlist.arraylist;
 
-public class ArrayListIterator {
+import uaslp.objetos.list.linkedlist.Iterator;
+
+public class ArrayListIterator implements Iterator {
 
     private ArrayList arrayList;
     private int currentItem = 0;
@@ -8,7 +10,7 @@ public class ArrayListIterator {
     public ArrayListIterator(ArrayList arrayList) {
         this.arrayList = arrayList;
     }
-
+@Override
     public boolean hasNext() {
         return currentItem < arrayList.getSize();
 

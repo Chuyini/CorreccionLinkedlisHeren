@@ -1,7 +1,11 @@
 package uaslp.objetos.list.linkedlist.arraylist;
+import uaslp.objetos.list.linkedlist.Iterator;
+import uaslp.objetos.list.linkedlist.List;
 
 
-public class ArrayList {
+import javax.swing.*;
+
+public class ArrayList implements List {
     private static final int DEFAULT_SIZE=50;//#Define DEFAULT_SIZE 50. estatico para generar varias copias en cada objeto
     private String array[];
     int size=0; //Tipos primitivos se igualan a 0
@@ -16,17 +20,19 @@ public class ArrayList {
        array=new String[size];// creamos el arreglo con el tamaño size indicado por el usuario
     }
 
-
+@Override
     public void addAtTail (String data)
     {
         if(size== array.length)
         {
             incrementaArreglo();
+            array[size+1]=data;
         }
         array[size]=data;
         size++;
 
     }
+    @Override
     public void addAtFront(String data)
     {
         String aux;
@@ -34,27 +40,34 @@ public class ArrayList {
         int cont;
 
 
-        array[1]=array[0];
-        for ( cont = 0; cont<size; cont++)
+
+        for ( cont = size; cont>=0; cont--)
         {
-            aux=array[cont+1];
+
            array[cont+1]=array[cont];
         }
-        array[cont]=aux;
+
 
         array[0]=data;
         size++;
 
     }
+    @Override
     public void remove(int index)
     {
+        if(size==0)
+        {
+            return;
+        }
+
         for(int cont=index;cont<size;cont++)
         {
             array[cont]=array[cont+1];
         }
-        array[size-1]=null;
+        array[size]=null;
         size--;
     }
+    @Override
     public void removeAll()
     {
         for (int cont=0;cont<size;cont++)
@@ -63,13 +76,14 @@ public class ArrayList {
         }
         size=0;
     }
+    @Override
     public void setAt(int index, String data) {
         if(index>=0&& index<size)
         {array[index]=data;}
 
 
     }
-
+    @Override
     public String getAt(int index)
     {
         if(index>=0&&index<size)
@@ -81,19 +95,20 @@ public class ArrayList {
             return null;
         }
     }
+
     public void removeAllWithVlue(String data)
     {
 
     }
-    public int getSize()
-    {
+    @Override
+    public int getSize() {
         return size;
     }
-
-    public ArrayListIterator getIterator()
+    @Override
+    public Iterator getIterator()
     {
-        ArrayListIterator ArrayListIterator;
-        return ArrayListIterator=new ArrayListIterator(this);
+
+        return new ArrayListIterator(this);
     }
 
     private void incrementaArreglo()
