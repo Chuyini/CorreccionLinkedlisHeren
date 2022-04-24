@@ -1,15 +1,33 @@
 package uaslp.objetos.list.linkedlist;
 
 import uaslp.objetos.list.linkedlist.arraylist.ArrayList;
+import uaslp.objetos.list.linkedlist.exception.NotNullValuesAllowedException;
+import uaslp.objetos.list.linkedlist.exception.NotValidIndexException;
 import uaslp.objetos.list.linkedlist.linkedlist.LinkedList;
 import uaslp.objetos.list.linkedlist.linkedlist.LinkedListIterator;
 import uaslp.objetos.list.linkedlist.Iterator;
 public class MainInterface {
-    public static void main(String[] args) {
-        List <String> team1 = new ArrayList<>();
-        List<String> team2 = new LinkedList<>();
-        List<String> team3 = new ArrayList<>();
 
+
+
+    public static void main(String[] args) {
+        List <String> team1 = new LinkedList<>();
+        List<String> team2 = new LinkedList<>();
+        List<String> team3 = new LinkedList<>();
+
+        try {
+            metodo(team1,team2, team3);
+        }catch (NotValidIndexException ex)
+        {
+            System.out.println(ex.getMessage());
+        }catch (NotNullValuesAllowedException ex)
+        {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+    public static void metodo(List <String> team1, List <String> team2, List <String> team3) throws NotValidIndexException, NotNullValuesAllowedException
+    {
 
         team1.addAtTail("Jesús");
         team1.addAtTail("Salomón");
@@ -48,7 +66,10 @@ public class MainInterface {
         // Daniel
         // Cristian
 
+
+
         team1.remove(0);
+
         team1.addAtFront("Rebeca");
         System.out.println("Team 1 tiene: " + team1.getSize() + " integrantes"); // debe imprimir "Team 1 tiene 3 integrantes"
 
@@ -80,6 +101,7 @@ public class MainInterface {
         // Daniel
         // Rita
 
+        team3.addAtFront(null);
         team3.remove(0);
         team3.remove(0); // El elemento no existe pero el programa no debe cerrarse por algún error
 
@@ -116,7 +138,6 @@ public class MainInterface {
         // Rebeca
         // Luis
         // Yael
-
-
     }
+
 }

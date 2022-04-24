@@ -2,13 +2,20 @@ package uaslp.objetos.list.linkedlist.linkedlist;
 import uaslp.objetos.list.linkedlist.List;
 
 import uaslp.objetos.list.linkedlist.Iterator;
+import uaslp.objetos.list.linkedlist.exception.NotNullValuesAllowedException;
+import uaslp.objetos.list.linkedlist.exception.NotValidIndexException;
+
 public class LinkedList <T> implements List <T> {
     protected  Node <T> head;
     protected  Node <T>tail;
     public int size=0;
 @Override
-    public void addAtTail (T data)
+    public void addAtTail (T data) throws NotNullValuesAllowedException
     {
+        if (data==null)
+        {
+            throw new NotNullValuesAllowedException();
+        }
         if(head==null)
         {
             Node <T> til=new Node<>();
@@ -26,8 +33,12 @@ public class LinkedList <T> implements List <T> {
         }
     }
     @Override
-    public void addAtFront(T data)
+    public void addAtFront(T data) throws NotNullValuesAllowedException
     {
+        if (data==null)
+        {
+            throw new NotNullValuesAllowedException();
+        }
 
 
         if(head==null)
@@ -53,12 +64,15 @@ public class LinkedList <T> implements List <T> {
 
     }
     @Override
-    public void remove(int index)
-    {
+    public void remove(int  index) throws NotValidIndexException {
 
         Node<T> aux =new Node<>();
         int cont;
         aux=head;
+        if(index<0 || index>= size)
+        {
+            throw  new NotValidIndexException(index);
+        }
         if(aux==null)
         {
             return;
@@ -116,14 +130,18 @@ public class LinkedList <T> implements List <T> {
 
     }
     @Override
-    public void setAt(int index, T data)
+    public void setAt(int index, T data) throws NotValidIndexException, NotNullValuesAllowedException
     {
         Node<T> aux= new Node<>();
         aux=head;
         int cont=0;
         if(head==null)
         {
-            return;
+            throw new NotNullValuesAllowedException();
+        }
+        if(index<0 || index>= size)
+        {
+            throw  new NotValidIndexException(index);
         }
         for (cont=0;cont<index;cont++)
         {
@@ -149,6 +167,7 @@ public class LinkedList <T> implements List <T> {
 
         int cont;
         aux=head;
+
 
         for (cont=0;cont<=index;cont++,aux=aux.next)
         {
