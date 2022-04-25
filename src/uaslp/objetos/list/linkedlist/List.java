@@ -10,7 +10,7 @@ public interface  List <T> {
     void remove(int index) throws NotValidIndexException;
     void removeAll();
     void setAt(int index,T data) throws NotValidIndexException, NotNullValuesAllowedException;
-    T getAt(int index);
+    T getAt(int index) throws NotValidIndexException;
     Iterator<T> getIterator();
     int getSize();
 

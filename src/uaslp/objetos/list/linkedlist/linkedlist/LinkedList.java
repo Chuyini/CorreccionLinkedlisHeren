@@ -125,9 +125,14 @@ public class LinkedList <T> implements List <T> {
         {
             aux=aux.next;
             aux.previous=null;
-
+            size--;
+            if(aux==tail)
+            {
+                tail=null;
+                size--;
+                return;
+            }
         }
-
     }
     @Override
     public void setAt(int index, T data) throws NotValidIndexException, NotNullValuesAllowedException
@@ -135,10 +140,7 @@ public class LinkedList <T> implements List <T> {
         Node<T> aux= new Node<>();
         aux=head;
         int cont=0;
-        if(head==null)
-        {
-            throw new NotNullValuesAllowedException();
-        }
+       
         if(index<0 || index>= size)
         {
             throw  new NotValidIndexException(index);
@@ -153,6 +155,7 @@ public class LinkedList <T> implements List <T> {
 
 
 
+
         return ;
         }
 
@@ -161,24 +164,31 @@ public class LinkedList <T> implements List <T> {
 
 
     @Override
-    public T getAt(int index)
+    public T getAt(int index) throws NotValidIndexException
     {
         Node<T> aux=new Node<>();
 
         int cont;
         aux=head;
+        T nombre = null;
+        if(index<0 || index>= size)
+        {
+            throw  new NotValidIndexException(index);
+        }
+
 
 
         for (cont=0;cont<=index;cont++,aux=aux.next)
         {
             if(cont==index)
             {
-                return aux.nombre;
+                nombre= aux.nombre;
             }
 
         }
-        return null;
 
+
+        return nombre;
     }
 
 
