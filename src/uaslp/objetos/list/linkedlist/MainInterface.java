@@ -12,7 +12,7 @@ public class MainInterface {
 
     public static void main(String[] args) {
         List <String> team1 = new LinkedList<>();
-        List<String> team2 = new LinkedList<>();
+        List<String> team2 = new ArrayList<>();
         List<String> team3 = new LinkedList<>();
 
         try {

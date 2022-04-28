@@ -9,8 +9,10 @@ public class ArrayList <T> implements List <T> {
     {
         array=(T[]) new Object[DEFAULT_SIZE];
     }
+
     ArrayList(int size){
        array=(T[])new Object[size];// creamos el arreglo con el tamaño size indicado por el usuario
+        this.size=size;
     }
 @Override
     public void addAtTail (T data)
@@ -71,8 +73,6 @@ public class ArrayList <T> implements List <T> {
     public void setAt(int index, T data) {
         if(index>=0&& index<size)
         {array[index]=data;}
-
-
     }
     @Override
     public T getAt(int index)
