@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import uaslp.objetos.list.linkedlist.Iterator;
 import uaslp.objetos.list.linkedlist.arraylist.ArrayList;
+import uaslp.objetos.list.linkedlist.exception.NotValidIndexException;
 
 public class ArrayListTest {
     @Test
@@ -67,7 +68,7 @@ public class ArrayListTest {
         Assertions.assertEquals("Cruel", arryList.getAt(0));//ejecucion
     }
     @Test
-    public void givenANewArrayListWhit3Elements_whenGetIterator_thenWorksWell() {
+    public void givenANewArrayListWhit3Elements_whenGetIterator_thenWorksWell() throws NotValidIndexException {
         //Given
         ArrayList<String> arryList = new ArrayList<>();
         arryList.addAtTail("Jesus");

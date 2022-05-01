@@ -2,7 +2,6 @@ package uaslp.objetos.list.linkedlist.linkedlist;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import uaslp.objetos.list.linkedlist.Iterator;
-import uaslp.objetos.list.linkedlist.List;
 import uaslp.objetos.list.linkedlist.exception.NotNullValuesAllowedException;
 import uaslp.objetos.list.linkedlist.exception.NotValidIndexException;
 
@@ -81,6 +80,14 @@ public class LinkedListTest {
         //when
         //then:
         Assertions.assertThrows(NotNullValuesAllowedException.class,()-> list.addAtTail(null));
+    }
+    @Test
+    public void givenALListWhitTwoElements_whenSetAtNull_thenNotNullValuesException() {
+        //given
+        LinkedList<String> list = new LinkedList<>();
+        //when
+        //then:
+        Assertions.assertThrows(NotNullValuesAllowedException.class,()-> list.setAt(0,null));
     }
     @Test
     public void givenAListWhit1Element_whenAddAtFrontAnElement_thenSizesIsTwo() throws NotNullValuesAllowedException, NotValidIndexException {
@@ -227,8 +234,7 @@ public class LinkedListTest {
 
     }
     @Test
-    public void givenAListWhit3Elements_whenGetIterator_thenIteratorWorksOverAllThreeElements() throws NotNullValuesAllowedException
-    {
+    public void givenAListWhit3Elements_whenGetIterator_thenIteratorWorksOverAllThreeElements() throws NotNullValuesAllowedException, NotValidIndexException {
         //given
         LinkedList<String> list=new LinkedList<>();
         list.addAtTail("Adios");

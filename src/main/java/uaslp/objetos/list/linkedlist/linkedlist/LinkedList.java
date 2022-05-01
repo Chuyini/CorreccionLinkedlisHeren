@@ -140,6 +140,10 @@ public class LinkedList <T> implements List <T> {
         Node<T> aux= new Node<>();
         aux=head;
         int cont=0;
+        if(data==null)
+        {
+            throw  new NotNullValuesAllowedException();
+        }
        
         if(index<0 || index>= size)
         {
